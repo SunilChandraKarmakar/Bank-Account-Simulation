@@ -1,0 +1,8 @@
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.deps.json
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.dll
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.pdb
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.csprojAssemblyReference.cache
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.AssemblyInfoInputs.cache
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.AssemblyInfo.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.dll
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.pdb
