@@ -6,3 +6,10 @@ F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulati
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.AssemblyInfo.cs
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.dll
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.pdb
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\bin\Debug\netcoreapp3.1\Models.dll
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\bin\Debug\netcoreapp3.1\ProjectContext.dll
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\bin\Debug\netcoreapp3.1\ProjectRepository.dll
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\bin\Debug\netcoreapp3.1\Models.pdb
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\bin\Debug\netcoreapp3.1\ProjectRepository.pdb
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\bin\Debug\netcoreapp3.1\ProjectContext.pdb
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.csproj.CopyComplete
