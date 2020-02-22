@@ -6,3 +6,8 @@ F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulati
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectContext\obj\Debug\netcoreapp3.1\ProjectContext.AssemblyInfo.cs
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectContext\obj\Debug\netcoreapp3.1\ProjectContext.dll
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectContext\obj\Debug\netcoreapp3.1\ProjectContext.pdb
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectContext\bin\Debug\netcoreapp3.1\ProjectContext.runtimeconfig.json
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectContext\bin\Debug\netcoreapp3.1\ProjectContext.runtimeconfig.dev.json
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectContext\bin\Debug\netcoreapp3.1\Models.dll
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectContext\bin\Debug\netcoreapp3.1\Models.pdb
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectContext\obj\Debug\netcoreapp3.1\ProjectContext.csproj.CopyComplete

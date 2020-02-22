@@ -5,3 +5,4 @@ F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulati
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectRepository\obj\Debug\netcoreapp3.1\ProjectRepository.AssemblyInfo.cs
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectRepository\obj\Debug\netcoreapp3.1\ProjectRepository.dll
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectRepository\obj\Debug\netcoreapp3.1\ProjectRepository.pdb
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\ProjectRepository\obj\Debug\netcoreapp3.1\ProjectRepository.csprojAssemblyReference.cache
