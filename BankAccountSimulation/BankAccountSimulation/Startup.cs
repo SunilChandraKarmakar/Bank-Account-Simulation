@@ -41,6 +41,8 @@ namespace BankAccountSimulation
 
             services.AddTransient<ICountryManager, CountryManager>();
             services.AddTransient<ICountryRepository, CountryRepository>();
+            services.AddTransient<ICityManager, CityManager>();
+            services.AddTransient<ICityRepository, CityRepository>();
             services.AddTransient<IAdminRepository, AdminRepository>();
             services.AddTransient<IAdminManager, AdminManager>();
         }
