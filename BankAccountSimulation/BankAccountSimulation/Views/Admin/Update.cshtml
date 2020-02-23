@@ -1,0 +1,71 @@
+﻿@using Models
+@model Admin
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="haderTitle">Update Admin</h1>
+<hr />
+
+<div class="row" id="updateFrom">
+    <div class="col-md-12">
+        <form method="post" asp-action="Update">
+            <div class="form-group">
+                <label asp-for="Name" class="col-md-2 control-lable">Name</label>
+                <div class="col-md-5">
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="col-md-2 control-lable">User Name</label>
+                <div class="col-md-5">
+                    <input type="text" asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="col-md-2 control-lable">Email</label>
+                <div class="col-md-5">
+                    <input type="email" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNo" class="col-md-2 control-lable">Contact No</label>
+                <div class="col-md-5">
+                    <input type="number" asp-for="ContactNo" class="form-control" />
+                    <span asp-validation-for="ContactNo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="col-md-2 control-lable">Password</label>
+                <div class="col-md-5">
+                    <input type="password" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="col-md-6 control-lable">Confirm Password</label>
+                <div class="col-md-5">
+                    <input type="password" asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <span class="text-danger">@ViewBag.ErrorMessage</span>
+                    <input type="submit" value="Update" class="btn btn-success" />
+                    <a asp-action="Index" class="btn btn-info"><i class="far fa-list-alt"></i> Back To List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+

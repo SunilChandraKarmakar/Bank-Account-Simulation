@@ -12,6 +12,10 @@ using BankAccountSimulation.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProjectRepository.Contracts;
+using ProjectRepository;
+using BusinessLogicLayer.Contracts;
+using BusinessLogicLayer;
 
 namespace BankAccountSimulation
 {
@@ -34,6 +38,9 @@ namespace BankAccountSimulation
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddTransient<IAdminRepository, AdminRepository>();
+            services.AddTransient<IAdminManager, AdminManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

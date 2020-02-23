@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BusinessLogicLayer.Contracts
 {
-    public interface IAdminManager : IBusinessLogicManager<Admin> 
+    public interface IAdminManager : IBusinessLogicManager<Admin>  
     {
     }
 }

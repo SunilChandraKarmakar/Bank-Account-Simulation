@@ -1,0 +1,50 @@
+﻿@using Models
+@model IEnumerable<Admin>
+  
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="haderTitle">Admin Details</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <a asp-action="Create" asp-controller="Admin" class="btn btn-primary"><i class="fas fa-user-plus"></i> Create Admin</a>
+    </div>
+</div>
+
+<div class="row" id="styleDataTable">
+    <div class="col-md-12">
+        <table id="dataTable" class="display table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Contact No</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Admin item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td>@item.ContactNo</td>
+                        <td>@item.Password</td>
+                        <td>
+                            <a asp-route-id="@item.Id" asp-action="Edit" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
+                            <a asp-route-id="@item.Id" asp-action="Delete" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
