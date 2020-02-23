@@ -39,6 +39,8 @@ namespace BankAccountSimulation
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddTransient<ICountryManager, CountryManager>();
+            services.AddTransient<ICountryRepository, CountryRepository>();
             services.AddTransient<IAdminRepository, AdminRepository>();
             services.AddTransient<IAdminManager, AdminManager>();
         }

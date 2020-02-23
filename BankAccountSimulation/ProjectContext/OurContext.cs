@@ -8,6 +8,8 @@ namespace ProjectContext
 {
     public class OurContext : DbContext 
     {
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
         public DbSet<Admin> Admins { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -21,6 +23,8 @@ namespace ProjectContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Admin>().HasIndex(a=> new { a.UserName, a.Email, a.ContactNo}).IsUnique();
+            modelBuilder.Entity<Country>().HasIndex(c=> c.Name).IsUnique();
+            modelBuilder.Entity<City>().HasIndex(c=> c.Name).IsUnique();
         }
     }
 }

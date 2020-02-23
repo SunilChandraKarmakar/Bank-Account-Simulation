@@ -38,8 +38,8 @@
                         <td>@item.ContactNo</td>
                         <td>@item.Password</td>
                         <td>
-                            <a asp-route-id="@item.Id" asp-action="Edit" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
-                            <a asp-route-id="@item.Id" asp-action="Delete" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                            <a asp-route-id="@item.Id" asp-action="Update" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
+                            <a asp-route-id="@item.Id" asp-action="Remove" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
                         </td>
                     </tr>
                 }
