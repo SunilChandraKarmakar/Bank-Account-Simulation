@@ -1,0 +1,50 @@
+﻿@using Models
+@model IEnumerable<Branch>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="haderTitle">Branch Details</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <a asp-action="Create" asp-controller="Branch" class="btn btn-primary"><i class="fas fa-user-plus"></i> Create Branch</a>
+    </div>
+</div>
+
+<div class="row" id="styleDataTableCountry">
+    <div class="col-md-10">
+        <table id="dataTable" class="display table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name and Email</th>
+                    <th>Country and City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Branch item in Model)
+                {
+                    <tr>
+                        <td>
+                            Name: @item.Name <br />
+                            Email: @item.Email <br />
+                        </td>
+                        <td>
+                            Country: @item.Country.Name <br />
+                            City: @item.City.Name <br />
+                        </td>
+                        <td>
+                            <a asp-route-id="@item.Id" asp-action="Update" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
+                            <a asp-route-id="@item.Id" asp-action="Remove" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

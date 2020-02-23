@@ -14,5 +14,6 @@ namespace Models
         public string Name { get; set; }
 
         public ICollection<City> Cities { get; set; }
+        public ICollection<Branch> Branches { get; set; }
     }
 }

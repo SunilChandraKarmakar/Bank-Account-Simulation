@@ -17,5 +17,6 @@ namespace Models
         public int CountryId { get; set; }
 
         public Country Country { get; set; }
+        public ICollection<Branch> Branches { get; set; }
     }
 }
