@@ -52,5 +52,6 @@ namespace Models
         public string Address { get; set; }
 
         public Branch Branch { get; set; }
+        public ICollection<Account> Accounts { get; set; }
     }
 }

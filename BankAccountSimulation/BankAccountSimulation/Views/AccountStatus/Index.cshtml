@@ -1,0 +1,42 @@
+﻿@using Models
+@model IEnumerable<AccountStatus>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="haderTitle">Account Status Details</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <a asp-action="Create" asp-controller="AccountStatus" class="btn btn-primary"><i class="fas fa-user-plus"></i> Create Account Status</a>
+    </div>
+</div>
+
+<div class="row" id="styleDataTableCountry">
+    <div class="col-md-5">
+        <table id="dataTable" class="display table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (AccountStatus item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            <a asp-route-id="@item.Id" asp-action="Update" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
+                            <a asp-route-id="@item.Id" asp-action="Remove" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

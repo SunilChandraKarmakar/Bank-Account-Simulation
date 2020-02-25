@@ -14,6 +14,9 @@ namespace ProjectContext
         public DbSet<Branch> Branches { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<AccountType> AccountTypes { get; set; }
+        public DbSet<AccountStatus> AccountStatuses { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,6 +33,9 @@ namespace ProjectContext
             modelBuilder.Entity<City>().HasIndex(c=> c.Name).IsUnique();
             modelBuilder.Entity<Branch>().HasIndex(b=> new { b.Name, b.Email}).IsUnique();
             modelBuilder.Entity<Customer>().HasIndex(c=> new { c.Email, c.ContactNo}).IsUnique();
+            modelBuilder.Entity<AccountType>().HasIndex(a=>a.Name).IsUnique();
+            modelBuilder.Entity<AccountStatus>().HasIndex(a=>a.Name).IsUnique();
+            modelBuilder.Entity<Account>().HasIndex(a=> new { a.AccountNumber }).IsUnique();
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {

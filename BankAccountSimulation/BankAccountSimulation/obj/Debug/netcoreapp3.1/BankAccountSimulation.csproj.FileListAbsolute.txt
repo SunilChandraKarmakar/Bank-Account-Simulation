@@ -183,3 +183,11 @@ F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulati
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Create.cshtml.g.cs
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Update.cshtml.g.cs
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Remove.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\AccountType\Index.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\AccountType\Create.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\AccountType\Update.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\AccountType\Remove.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\AccountStatus\Index.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\AccountStatus\Create.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\AccountStatus\Update.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\AccountStatus\Remove.cshtml.g.cs
