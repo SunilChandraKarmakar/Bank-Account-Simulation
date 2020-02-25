@@ -26,5 +26,6 @@ namespace Models
 
         public Country Country { get; set; }
         public City City { get; set; }
+        public ICollection<Customer> Customers { get; set; }
     }
 }

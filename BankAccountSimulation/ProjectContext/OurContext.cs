@@ -13,6 +13,7 @@ namespace ProjectContext
         public DbSet<City> Cities { get; set; }
         public DbSet<Branch> Branches { get; set; }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,6 +29,7 @@ namespace ProjectContext
             modelBuilder.Entity<Country>().HasIndex(c=> c.Name).IsUnique();
             modelBuilder.Entity<City>().HasIndex(c=> c.Name).IsUnique();
             modelBuilder.Entity<Branch>().HasIndex(b=> new { b.Name, b.Email}).IsUnique();
+            modelBuilder.Entity<Customer>().HasIndex(c=> new { c.Email, c.ContactNo}).IsUnique();
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {

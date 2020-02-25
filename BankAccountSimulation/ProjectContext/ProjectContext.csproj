@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200223135028_AddModel_Branch.cs" />
     <Compile Remove="Migrations\20200223135028_AddModel_Branch.Designer.cs" />
+    <Compile Remove="Migrations\20200224154643_ModifyCustomer_Model.cs" />
+    <Compile Remove="Migrations\20200224154643_ModifyCustomer_Model.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
