@@ -273,6 +273,52 @@ namespace ProjectContext.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("Models.TransactionsType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("TransactionsTypes");
+                });
+
+            modelBuilder.Entity("Models.TransferMoney", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Ammount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("SendAccountNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("TransferMoneyDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("TransferMoney");
+                });
+
             modelBuilder.Entity("Models.Account", b =>
                 {
                     b.HasOne("Models.AccountStatus", "AccountStatus")
@@ -329,6 +375,15 @@ namespace ProjectContext.Migrations
                     b.HasOne("Models.Branch", "Branch")
                         .WithMany("Customers")
                         .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Models.TransferMoney", b =>
+                {
+                    b.HasOne("Models.Account", "Account")
+                        .WithMany("TransferMoney")
+                        .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

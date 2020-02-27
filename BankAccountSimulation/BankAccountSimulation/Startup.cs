@@ -55,6 +55,8 @@ namespace BankAccountSimulation
             services.AddTransient<IAccountStatusRepository, AccountStatusRepository>();
             services.AddTransient<IAccountManager, AccountManager>();
             services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddTransient<ITransactionsTypeManager, TransactionsTypeManager>();
+            services.AddTransient<ITransactionsTypeRepository, TransactionTypeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

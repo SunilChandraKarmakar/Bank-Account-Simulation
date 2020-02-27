@@ -18,6 +18,8 @@ namespace ProjectContext
         public DbSet<AccountType> AccountTypes { get; set; }
         public DbSet<AccountStatus> AccountStatuses { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<TransactionsType> TransactionsTypes { get; set; } 
+        public DbSet<TransferMoney> TransferMoney { get; set; }
 
         [Obsolete]
         public DbQuery<CustomerNotInAccount> CustomerNotInAccounts { get; set; }
@@ -41,6 +43,8 @@ namespace ProjectContext
             modelBuilder.Entity<AccountType>().HasIndex(a=>a.Name).IsUnique();
             modelBuilder.Entity<AccountStatus>().HasIndex(a=>a.Name).IsUnique();
             modelBuilder.Entity<Account>().HasIndex(a=> new { a.AccountNumber }).IsUnique();
+            modelBuilder.Entity<TransactionsType>().HasIndex(t => t.Name).IsUnique();
+
             modelBuilder.Query<CustomerNotInAccount>().ToView("CustomerNotInAccount"); 
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
