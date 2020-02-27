@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
+using Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,9 @@ namespace ProjectContext
         public DbSet<AccountStatus> AccountStatuses { get; set; }
         public DbSet<Account> Accounts { get; set; }
 
+        [Obsolete]
+        public DbQuery<CustomerNotInAccount> CustomerNotInAccounts { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connectionString = @"Data Source = DESKTOP-HHA0TOP; 
@@ -26,6 +30,7 @@ namespace ProjectContext
             optionsBuilder.UseSqlServer(connectionString);
         }
 
+        [Obsolete]
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Admin>().HasIndex(a=> new { a.UserName, a.Email, a.ContactNo}).IsUnique();
@@ -36,6 +41,7 @@ namespace ProjectContext
             modelBuilder.Entity<AccountType>().HasIndex(a=>a.Name).IsUnique();
             modelBuilder.Entity<AccountStatus>().HasIndex(a=>a.Name).IsUnique();
             modelBuilder.Entity<Account>().HasIndex(a=> new { a.AccountNumber }).IsUnique();
+            modelBuilder.Query<CustomerNotInAccount>().ToView("CustomerNotInAccount"); 
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {

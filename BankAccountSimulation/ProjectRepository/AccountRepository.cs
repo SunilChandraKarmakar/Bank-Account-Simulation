@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
+using Models.ViewModel;
 using ProjectRepository.BaseRpository;
 using ProjectRepository.Contracts;
 using System;
@@ -21,10 +22,11 @@ namespace ProjectRepository
             return accountList;
         }
 
-        public ICollection<Customer> GetCustomerByBranchId(int branchId)
+        [Obsolete]
+        public List<CustomerNotInAccount> GetCustomerByBranchIdNotInAccount(int branchId)
         {
-            List<Customer> customers = ourContext.Customers
-                                       .Where(c => c.BranchId == branchId).ToList();
+            List<CustomerNotInAccount> customers = ourContext.CustomerNotInAccounts
+                                                   .Where(c => c.BranchId == branchId).ToList();
             return customers;
         }
 

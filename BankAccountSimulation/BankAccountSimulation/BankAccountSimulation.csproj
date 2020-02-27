@@ -26,6 +26,7 @@
 
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
     <None Include="wwwroot\dashboard-layout\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\style.scssc" />
     <None Include="wwwroot\dashboard-layout\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_fonts.scssc" />
     <None Include="wwwroot\dashboard-layout\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_mixin.scssc" />

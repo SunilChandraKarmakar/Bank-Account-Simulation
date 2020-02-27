@@ -6,6 +6,7 @@ using BusinessLogicLayer.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
+using Models.ViewModel;
 
 namespace BankAccountSimulation.Controllers
 {
@@ -82,8 +83,9 @@ namespace BankAccountSimulation.Controllers
         [Route("api/[controller]/[action]")]
         public JsonResult GetCustomerByBranchId(int branchId)
         {
-            ICollection<Customer> customers = _iAcccountManager.GetCustomerByBranchId(branchId);
-            return Json(customers);
+            List<CustomerNotInAccount> customerNotInAccount = _iAcccountManager
+                                                             .GetCustomerByBranchIdNotInAccount(branchId);
+            return Json(customerNotInAccount);
         }
 
         [Route("api/[controller]/[action]")]
@@ -101,7 +103,7 @@ namespace BankAccountSimulation.Controllers
             {
                 Account accountLastIndex = _iAcccountManager.GetAll().LastOrDefault();
                 string lastAccountNumber = accountLastIndex.AccountNumber;
-                string subStringLastAccountNumber = lastAccountNumber.Substring(0, 4);
+                int subStringLastAccountNumber = Convert.ToInt32(lastAccountNumber.Substring(0, 4));
                 generatedAccountNumber = (subStringLastAccountNumber + 1) + year;
             }
 

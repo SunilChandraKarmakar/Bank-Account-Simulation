@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace BusinessLogicLayer.Contracts
 {
     public interface IAccountManager : IBusinessLogicManager<Account>
     {
-        public ICollection<Customer> GetCustomerByBranchId(int branchId);
+        public List<CustomerNotInAccount> GetCustomerByBranchIdNotInAccount(int branchId);
         public Account GetAccountByIncluding(int? id);
     }
 }

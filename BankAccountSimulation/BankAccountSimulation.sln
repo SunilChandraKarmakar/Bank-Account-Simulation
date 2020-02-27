@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountSimulation", "BankAccountSimulation\BankAccountSimulation.csproj", "{91160F1A-9FB1-43B0-ADAA-5A8DA7ABE32E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccountSimulation", "BankAccountSimulation\BankAccountSimulation.csproj", "{91160F1A-9FB1-43B0-ADAA-5A8DA7ABE32E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{2CBCC1DF-4A51-450C-BBE4-F14362A75428}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{2CBCC1DF-4A51-450C-BBE4-F14362A75428}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectContext", "ProjectContext\ProjectContext.csproj", "{ED273A80-0F7E-488D-8864-6633D16F0BC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectContext", "ProjectContext\ProjectContext.csproj", "{ED273A80-0F7E-488D-8864-6633D16F0BC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{1027BFDC-875A-41CE-AC58-0FA75757CFAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{1027BFDC-875A-41CE-AC58-0FA75757CFAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectRepository", "ProjectRepository\ProjectRepository.csproj", "{86010888-F292-4ABD-B263-BE7C9A7BE66F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectRepository", "ProjectRepository\ProjectRepository.csproj", "{86010888-F292-4ABD-B263-BE7C9A7BE66F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

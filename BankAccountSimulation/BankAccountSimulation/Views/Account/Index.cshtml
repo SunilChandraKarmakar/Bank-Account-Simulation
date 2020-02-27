@@ -16,7 +16,7 @@
 </div>
 
 <div class="row" id="styleDataTableCountry">
-    <div class="col-md-8">
+    <div class="col-md-10">
         <table id="dataTable" class="display table table-bordered table-striped">
             <thead>
                 <tr>
@@ -31,14 +31,14 @@
                 {
                     <tr>
                         <td>
-                            @item.Branch.Name <br />
-                            @item.AccountType.Name <br />
-                            @item.AccountStatus.Name <br />
+                            Branch: @item.Branch.Name <br />
+                            Type: @item.AccountType.Name <br />
+                            Status: @item.AccountStatus.Name <br />
                         </td>
                         <td>
-                            @item.Customer.Name <br />
-                            @item.AccountNumber <br />
-                            @item.Balance <br />
+                            Customer: @item.Customer.Name <br />
+                            AC No: @item.AccountNumber <br />
+                            Balance: @item.Balance <br />
                         </td>
                         <td>
                             <a asp-route-id="@item.Id" asp-action="Update" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>

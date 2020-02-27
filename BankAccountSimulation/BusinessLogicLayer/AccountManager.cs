@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.BaseBLL;
 using BusinessLogicLayer.Contracts;
 using Models;
+using Models.ViewModel;
 using ProjectRepository.Contracts;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,9 @@ namespace BusinessLogicLayer
             return _iAccountRepository.GetAll();
         }
 
-        public ICollection<Customer> GetCustomerByBranchId(int branchId)
+        public List<CustomerNotInAccount> GetCustomerByBranchIdNotInAccount(int branchId)
         {
-            return _iAccountRepository.GetCustomerByBranchId(branchId);
+            return _iAccountRepository.GetCustomerByBranchIdNotInAccount(branchId);
         }
 
         public Account GetAccountByIncluding(int? id)
