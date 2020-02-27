@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h1 class="haderTitle">City Details</h1>
@@ -32,8 +32,8 @@
                         <td>@item.Name</td>
                         <td>@item.Country.Name</td>
                         <td>
-                            <a asp-route-id="@item.Id" asp-action="Update" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
-                            <a asp-route-id="@item.Id" asp-action="Remove" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                            <a asp-route-id="@item.Id" asp-action="Update" asp-controller="City" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
+                            <a asp-route-id="@item.Id" asp-action="Remove" asp-controller="City" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
                         </td>
                     </tr>
                 }

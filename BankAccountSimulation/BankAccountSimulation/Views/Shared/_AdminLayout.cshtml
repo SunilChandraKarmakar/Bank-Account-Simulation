@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+    <title>@ViewData["Title"]</title>
+
+    <link href="~/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">
+    <link href="~/css/customCss.css" rel="stylesheet" />
+    <link href="~/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/dashboard-layout/img/core-img/favicon.ico">                                   
+    <link href="~/dashboard-layout/style.css" rel="stylesheet" />      
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <!-- Navbar Area -->
+        <div class="credit-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="creditNav"> 
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>  
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>    
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a asp-action="Index" asp-controller="Admin">Admin</a></li>
+                                    <li>
+                                        <a href="#">References</a>
+                                        <ul class="dropdown">
+                                            <li><a asp-action="Index" asp-controller="Country">Country</a></li>
+                                            <li><a asp-action="Index" asp-controller="City">City</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a asp-action="Index" asp-controller="Branch">Branch</a></li>
+                                    <li><a asp-action="Index" asp-controller="Customer">Cusstomer</a></li>
+                                    <li>
+                                        <a href="#">Account References</a>
+                                        <ul class="dropdown">
+                                            <li><a asp-action="Index" asp-controller="AccountType">Account Type</a></li>
+                                            <li><a asp-action="Index" asp-controller="AccountStatus">Account Status</a></li>
+                                            <li><a asp-action="Index" asp-controller="Account">Account</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Login option</a>
+                                        <ul class="dropdown">
+                                            <li><a asp-action="Index" asp-controller="Home">Login</a></li>
+                                            <li><a asp-action="Index" asp-controller="Home">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>      
+                        <!-- Contact -->
+                        <div class="contact">
+                            <a href="#">
+                                <img src="~/dashboard-layout/img/core-img/call2.png" /> +800 49 900 900
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### --> 
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>   
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->                                                
+    <script src="~/dashboard-layout/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/font-awesome/js/all.js"></script>
+    <script src="~/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/dashboard-layout/js/bootstrap/popper.min.js"></script>
+    <script src="~/dashboard-layout/js/plugins/plugins.js"></script>
+    <script src="~/dashboard-layout/js/active.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable();
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>       
+</html>
