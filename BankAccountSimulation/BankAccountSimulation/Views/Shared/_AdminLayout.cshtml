@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -71,13 +73,10 @@
                                             <li><a asp-action="Index" asp-controller="Account">Account</a></li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="#">Login option</a>
-                                        <ul class="dropdown">
-                                            <li><a asp-action="Index" asp-controller="Home">Login</a></li>
-                                            <li><a asp-action="Index" asp-controller="Home">Logout</a></li>
-                                        </ul>
-                                    </li>
+                                    @if (Context.Session.GetString("Id") != null)
+                                    {
+                                        <li><a asp-action="AdminLogout" asp-controller="LoginLogout">Logout</a></li>  
+                                    }
                                 </ul>
                             </div>
                             <!-- Nav End -->

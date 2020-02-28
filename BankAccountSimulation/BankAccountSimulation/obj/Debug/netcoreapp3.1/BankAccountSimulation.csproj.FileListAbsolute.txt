@@ -150,8 +150,6 @@ F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulati
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\BankAccountSimulation.MvcApplicationPartsAssemblyInfo.cs
-F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\BankAccountSimulation.MvcApplicationPartsAssemblyInfo.cache
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\bin\Debug\netcoreapp3.1\libman.json
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\bin\Debug\netcoreapp3.1\BusinessLogicLayer.dll
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\bin\Debug\netcoreapp3.1\Models.dll
@@ -199,3 +197,9 @@ F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulati
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\TransactionsType\Create.cshtml.g.cs
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\TransactionsType\Update.cshtml.g.cs
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\TransactionsType\Remove.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\LoginLogout\AdminLogin.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\LoginLogout\CustomerLogin.cshtml.g.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\BankAccountSimulation.MvcApplicationPartsAssemblyInfo.cs
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\BankAccountSimulation.MvcApplicationPartsAssemblyInfo.cache

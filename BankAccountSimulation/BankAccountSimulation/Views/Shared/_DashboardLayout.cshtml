@@ -59,9 +59,10 @@
                                 <ul>
                                     <li><a asp-action="Index" asp-controller="Home">Home</a></li>
                                     <li><a href="../../dashboard-layout/about.html">About Us</a></li>
-                                    <li><a href="#">Pages</a>
+                                    <li>
+                                        <a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a  asp-action="Index" asp-controller="Home">Home</a></li>
+                                            <li><a asp-action="Index" asp-controller="Home">Home</a></li>
                                             <li><a href="../../dashboard-layout/about.html">About Us</a></li>
                                             <li><a href="../../dashboard-layout/services.html">Services</a></li>
                                             <li><a href="../../dashboard-layout/post.html">Post</a></li>
@@ -71,7 +72,8 @@
                                         </ul>
                                     </li>
                                     <li><a href="../../dashboard-layout/services.html">Services</a></li>
-                                    <li><a href="#">Portfolio</a>
+                                    <li>
+                                        <a href="#">Portfolio</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
                                                 <li><a href="#">Portfolio 1</a></li>
@@ -113,6 +115,13 @@
                                     </li>
                                     <li><a href="../../dashboard-layout/post.html">Blog</a></li>
                                     <li><a href="../../dashboard-layout/contact.html">Contact</a></li>
+                                    <li>
+                                        <a href="#">Login Option</a>
+                                        <ul class="dropdown">
+                                            <li><a asp-action="AdminLogin" asp-controller="LoginLogout">Admin Login</a></li>
+                                            <li><a asp-action="CustomerLogin" asp-controller="LoginLogout">Customer Login</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- Nav End -->

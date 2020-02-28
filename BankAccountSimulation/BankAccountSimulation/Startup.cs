@@ -57,6 +57,9 @@ namespace BankAccountSimulation
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<ITransactionsTypeManager, TransactionsTypeManager>();
             services.AddTransient<ITransactionsTypeRepository, TransactionTypeRepository>();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,6 +83,7 @@ namespace BankAccountSimulation
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

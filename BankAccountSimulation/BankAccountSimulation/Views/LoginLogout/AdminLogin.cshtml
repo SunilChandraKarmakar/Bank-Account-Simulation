@@ -1,0 +1,106 @@
+﻿@using Models
+@model Admin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/css/customCss.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/admin-login-layout/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/admin-login-layout/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/admin-login-layout/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/admin-login-layout/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/admin-login-layout/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/admin-login-layout/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/admin-login-layout/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/admin-login-layout/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/admin-login-layout/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/admin-login-layout/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+                <form class="login100-form validate-form flex-sb flex-w" asp-action="AdminLogin" asp-controller="LoginLogout">
+                    <span class="login100-form-title p-b-32">
+                        Account Login
+                    </span>
+
+                    <span class="txt1 p-b-11">
+                        Email Address
+                    </span>
+                    <div class="wrap-input100 validate-input m-b-36" data-validate="Email is required">
+                        <input class="input100" type="email" asp-for="Email">
+                        <span asp-validation-for="Email" class="focus-input100 text-danger"></span>
+                    </div>
+
+                    <span class="txt1 p-b-11">
+                        Password
+                    </span>
+                    <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
+                        <span class="btn-show-pass">
+                            <i class="fa fa-eye"></i>
+                        </span>
+                        <input class="input100" type="password" asp-for="Password">
+                        <span asp-validation-for="Password" class="focus-input100 text-danger"></span>
+                    </div>
+
+                    <div class="flex-sb-m w-full p-b-48">
+                        <span class="text-danger">@ViewBag.ErrorMessage</span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <input type="submit" value="Login" class="login100-form-btn" />
+                        <a asp-action="Index" asp-controller="Home" class="login100-form-btn" style="margin-left: 90px">Home</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <!--===============================================================================================-->
+    <script src="~/admin-login-layout/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/admin-login-layout/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/admin-login-layout/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/admin-login-layout/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/admin-login-layout/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/admin-login-layout/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/admin-login-layout/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/admin-login-layout/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/admin-login-layout/js/main.js"></script>
+
+</body>
+</html>

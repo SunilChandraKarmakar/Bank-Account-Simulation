@@ -16,5 +16,10 @@ namespace BusinessLogicLayer
         {
             _iAdminRepository = iAdminRepository;
         }
+
+        public Admin MatchAdmin(string email, string password)
+        {
+            return _iAdminRepository.MatchAdmin(email, password);
+        }
     }
 }
