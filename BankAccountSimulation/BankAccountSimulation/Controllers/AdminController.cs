@@ -21,7 +21,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 ICollection<Admin> adminList = _iAdminManager.GetAll();
                 return View(adminList);
@@ -33,7 +33,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 return View();
             }
@@ -60,7 +60,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Update(int? id)
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 if (id == null)
                     return NotFound();
@@ -79,7 +79,7 @@ namespace BankAccountSimulation.Controllers
         [HttpPost]
         public IActionResult Update(Admin aAdmin)
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 if (ModelState.IsValid)
                 {
@@ -100,7 +100,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Remove(int? id)
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 if (id == null)
                     return NotFound();
@@ -119,7 +119,7 @@ namespace BankAccountSimulation.Controllers
         [HttpPost]
         public IActionResult Remove(Admin aAdmin)
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 bool isRemove = _iAdminManager.Remove(aAdmin);
 

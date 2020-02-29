@@ -1,0 +1,46 @@
+﻿@using Models
+@model Customer
+
+@{
+    ViewData["Title"] = "LoginCustomerInfo";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h1 class="haderTitle">Customer Information</h1>
+
+<div class="row" id="styleDataTableCustomer">
+    <div class="col-md-12">
+        <table class="display table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Basic Info</th>
+                    <th>Branch And Join Date</th>
+                    <th>Picture</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Name: @Model.Name <br />
+                        Email: @Model.Email <br />
+                        Contact: @Model.ContactNo <br />
+                    </td>
+                    <td>
+                        Join Date: @Model.JoinDate <br />
+                        Branch: @Model.Branch.Name <br />
+                        Address: <address> @Model.Address </address> <br />
+                    </td>
+                    <td>
+                        <img src="~/@Model.Picture" height="140" width="125" />
+                    </td>
+                    <td>
+                        <a asp-route-id="@Model.Id" asp-action="LoginCustomerUpdate" asp-controller="Customer" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

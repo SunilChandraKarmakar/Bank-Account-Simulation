@@ -33,5 +33,12 @@ namespace ProjectRepository
             string existEmail = aCustomerInfo.Email;
             return existEmail;
         }
+
+        public Customer MatchCustomer(string email, string password)
+        {
+            Customer loginCustomerDetails = ourContext.Customers
+                                            .Where(c => c.Email == email && c.Password == password).FirstOrDefault();
+            return loginCustomerDetails;
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
                 return View(_iAcccountManager.GetAll());
             else
                 return RedirectToAction("Index", "Home");
@@ -117,7 +117,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 ViewBag.BranchList = BranchList();
                 ViewBag.AccountTypeList = AccountTypeList();
@@ -150,7 +150,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Update(int? id)
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 if (id == null)
                     return NotFound();
@@ -193,7 +193,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Remove(int? id)
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 if (id == null)
                     return NotFound();

@@ -1,0 +1,105 @@
+﻿@using Models
+@model Customer
+
+@{
+    ViewData["Title"] = "LoginCustomerUpdate";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h1 class="haderTitle">Update My Information</h1>
+<hr />
+
+<form method="post" asp-action="LoginCustomerUpdate" asp-controller="Customer" enctype="multipart/form-data" asp-route-pic="@Model.Picture">
+    <div class="row">
+        <div class="col-md-6" id="customerFromLeft">
+            <div class="form-group">
+                <label asp-for="Name" class="col-md-2 control-lable">Name</label>
+                <div class="col-md-8">
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="col-md-2 control-lable">Password</label>
+                <div class="col-md-8">
+                    <input type="password" asp-for="Password" value="@Model.Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNo" class="col-md-5 control-lable">Contact No</label>
+                <div class="col-md-8">
+                    <input type="number" asp-for="ContactNo" class="form-control" />
+                    <span asp-validation-for="ContactNo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label hidden="hidden" asp-for="BranchId" class="col-md-2 control-lable">Branch</label>
+                <div class="col-md-8">
+                    <select hidden="hidden" asp-for="BranchId" asp-items="@ViewBag.BranchList" class="form-control">
+
+                    </select>
+                    <span asp-validation-for="BranchId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" id="customerFromRight">
+            <div class="form-group">
+                <label asp-for="Email" class="col-md-2 control-lable">Email</label>
+                <div class="col-md-8">
+                    <input type="email" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="col-md-5 control-lable">Confirm Password</label>
+                <div class="col-md-8">
+                    <input type="password" asp-for="ConfirmPassword" value="@Model.Password" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="JoinDate" class="col-md-5 control-lable">Join Date</label>
+                <div class="col-md-8">
+                    <input type="text" asp-for="JoinDate" class="form-control" readonly="readonly"/>
+                    <span asp-validation-for="JoinDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Picture" class="col-md-2 control-lable">Pictuer</label>
+                <div class="col-md-8">
+                    <input type="file" asp-for="Picture" class="form-control" />
+                    <span asp-validation-for="Picture" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8" id="addressForCustomer">
+            <div class="form-group">
+                <label asp-for="Address" class="col-md-2 control-lable">Address</label>
+                <div class="col-md-8">
+                    <textarea asp-for="Address" class="form-control" placeholder="Type your address"></textarea>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="btnForCustomer">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <span class="text-danger">@ViewBag.ErrorMessage</span>
+                    <input type="submit" value="Update" class="btn btn-success" />
+                    <a asp-action="LoginCustomerInfo" class="btn btn-info"><i class="far fa-list-alt"></i> Back To Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script src="~/js/CasecadingDateTimeForCustomer.js"></script>
+

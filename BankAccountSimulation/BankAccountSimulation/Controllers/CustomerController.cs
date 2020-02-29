@@ -32,7 +32,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
                 return View(_iCustomerMamager.GetCustomerWithBranch());
             else
                 return RedirectToAction("Index", "Home");
@@ -52,7 +52,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 ViewBag.BranchList = BranchList();
                 return View();
@@ -93,7 +93,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Update(int? id)
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 if (id == null)
                     return NotFound();
@@ -143,7 +143,7 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Remove(int? id)
         {
-            if (HttpContext.Session.GetString("Id") != null)
+            if (HttpContext.Session.GetString("AdminId") != null)
             {
                 if (id == null)
                     return NotFound();
@@ -179,6 +179,78 @@ namespace BankAccountSimulation.Controllers
                 return Json(1);
             else
                 return Json(0);
+        }
+
+        private Customer LoginCustomer()
+        {
+            string customerId = HttpContext.Session.GetString("CustomerId");
+            int convertCustomerId = Convert.ToInt32(customerId);
+            Customer loginCustomerInfo = _iCustomerMamager.ACustomerWithBranch(convertCustomerId);
+            return loginCustomerInfo;
+        }
+
+        [HttpGet]
+        public IActionResult LoginCustomerInfo()
+        {
+            if (HttpContext.Session.GetString("CustomerId") != null)
+            {
+                Customer loginCustomerInfo = LoginCustomer();
+                return View(loginCustomerInfo);
+            }
+            else
+                return RedirectToAction("CustomerLogin", "LoginLogout");
+        }
+
+        [HttpGet]
+        public IActionResult LoginCustomerUpdate(int? id)
+        {
+            if (HttpContext.Session.GetString("CustomerId") != null)
+            {
+                if (id == null)
+                    return NotFound();
+
+                Customer aCustomer = _iCustomerMamager.GetById(id);
+
+                if (aCustomer == null)
+                    return NotFound();
+
+                ViewBag.BranchList = BranchList();
+                return View(aCustomer);
+            }
+            else
+                return RedirectToAction("CustomerLogin", "LoginLogout");
+        }
+
+        [HttpPost]
+        [Obsolete]
+        public IActionResult LoginCustomerUpdate(Customer aCustomer, IFormFile picture, string pic)
+        {
+            if (ModelState.IsValid)
+            {
+                if (picture != null)
+                {
+                    string nameAndPath = Path.Combine(_iHostingEnvironment.WebRootPath
+                                                  + "/CustomerPictures",
+                                                  Path.GetFileName(picture.FileName));
+                    picture.CopyToAsync(new FileStream(nameAndPath, FileMode.Create));
+                    aCustomer.Picture = "CustomerPictures/" + picture.FileName;
+                }
+
+                if (picture == null)
+                    aCustomer.Picture = pic;
+
+                bool isUpdate = _iCustomerMamager.Update(aCustomer);
+
+                if (isUpdate)
+                    return RedirectToAction("LoginCustomerInfo");
+                else
+                    return ViewBag.ErrorMessage = "Customer failed to update!";
+            }
+            else
+            {
+                ViewBag.BranchList = BranchList();
+                return View(aCustomer);
+            }
         }
     }
 }

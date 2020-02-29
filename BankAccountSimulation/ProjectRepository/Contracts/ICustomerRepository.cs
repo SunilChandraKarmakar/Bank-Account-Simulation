@@ -10,5 +10,6 @@ namespace ProjectRepository.Contracts
         public ICollection<Customer> GetCustomerWithBranch();
         public Customer ACustomerWithBranch(int? id);
         public string ExistEmail(string customerEmail);
+        public Customer MatchCustomer(string email, string password);
     }
 }

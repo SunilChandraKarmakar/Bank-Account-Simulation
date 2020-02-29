@@ -18,8 +18,8 @@
     <link href="~/datatables/css/jquery.dataTables.css" rel="stylesheet" />
 
     <!-- Favicon -->
-    <link rel="icon" href="~/dashboard-layout/img/core-img/favicon.ico">                                   
-    <link href="~/dashboard-layout/style.css" rel="stylesheet" />      
+    <link rel="icon" href="~/dashboard-layout/img/core-img/favicon.ico">
+    <link href="~/dashboard-layout/style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -41,22 +41,27 @@
             <div class="classy-nav-container breakpoint-off">
                 <div class="container">
                     <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="creditNav"> 
+                    <nav class="classy-navbar justify-content-between" id="creditNav">
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
                             <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>  
+                        </div>
                         <!-- Menu -->
                         <div class="classy-menu">
                             <!-- Close Button -->
                             <div class="classycloseIcon">
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>    
+                            </div>
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a asp-action="Index" asp-controller="Admin">Admin</a></li>
-                                    <li>
+                                    <li><a asp-action="LoginCustomerInfo" asp-controller="Customer">My Information</a></li>
+                                    @if(Context.Session.GetString("CustomerId") != null)
+                                    {
+                                        <li><a asp-action="CustomerLogout" asp-controller="LoginLogout">Logout</a></li>
+                                    }
+
+                                    @*<li>
                                         <a href="#">References</a>
                                         <ul class="dropdown">
                                             <li><a asp-action="Index" asp-controller="Country">Country</a></li>
@@ -72,15 +77,11 @@
                                             <li><a asp-action="Index" asp-controller="AccountStatus">Account Status</a></li>
                                             <li><a asp-action="Index" asp-controller="Account">Account</a></li>
                                         </ul>
-                                    </li>
-                                    @if (Context.Session.GetString("AdminId") != null)
-                                    {
-                                        <li><a asp-action="AdminLogout" asp-controller="LoginLogout">Logout</a></li>  
-                                    }
+                                    </li>*@
                                 </ul>
                             </div>
                             <!-- Nav End -->
-                        </div>      
+                        </div>
                         <!-- Contact -->
                         <div class="contact">
                             <a href="#">
@@ -92,14 +93,14 @@
             </div>
         </div>
     </header>
-    <!-- ##### Header Area End ##### --> 
+    <!-- ##### Header Area End ##### -->
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>   
+    </div>
     <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->                                                
+    <!-- jQuery-2.2.4 js -->
     <script src="~/dashboard-layout/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
     <script src="~/font-awesome/js/all.js"></script>
@@ -115,5 +116,5 @@
         });
     </script>
     @RenderSection("Scripts", required: false)
-</body>       
+</body>
 </html>

@@ -6,16 +6,19 @@ using BusinessLogicLayer.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using ProjectRepository.Contracts;
 
 namespace BankAccountSimulation.Controllers
 {
     public class LoginLogoutController : Controller
     {
         private readonly IAdminManager _iAdminManager;
+        private readonly ICustomerManager _iCustomerManager;
 
-        public LoginLogoutController(IAdminManager iAdminManager)
+        public LoginLogoutController(IAdminManager iAdminManager, ICustomerManager iCustomerManager)
         {
             _iAdminManager = iAdminManager;
+            _iCustomerManager = iCustomerManager;
         }
 
         [HttpGet]
@@ -35,7 +38,7 @@ namespace BankAccountSimulation.Controllers
 
                 if (loginAdminDetails != null)
                 {
-                    HttpContext.Session.SetString("Id", loginAdminDetails.Id.ToString());
+                    HttpContext.Session.SetString("AdminId", loginAdminDetails.Id.ToString());
                     return RedirectToAction("Index", "Admin");
                 }
                 else
@@ -56,6 +59,34 @@ namespace BankAccountSimulation.Controllers
         public IActionResult CustomerLogin()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult CustomerLogin(string email, string password)
+        {
+            Customer loginCustomerDetails = new Customer();
+            
+            if(ModelState.IsValid)
+            {
+                loginCustomerDetails = _iCustomerManager.MatchCustomer(email, password);
+
+                if (loginCustomerDetails != null)
+                {
+                    HttpContext.Session.SetString("CustomerId", loginCustomerDetails.Id.ToString());
+                    return RedirectToAction("LoginCustomerInfo", "Customer");
+                }
+                else
+                    return RedirectToAction("Index", "Home");
+            }
+
+            return View(loginCustomerDetails);
+        }
+
+        [HttpGet]
+        public IActionResult CustomerLogout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

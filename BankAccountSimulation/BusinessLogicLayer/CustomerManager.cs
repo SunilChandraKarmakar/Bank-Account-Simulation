@@ -31,5 +31,10 @@ namespace BusinessLogicLayer
         {
             return _iCustomerRepository.ExistEmail(customerEmail);
         }
+
+        public Customer MatchCustomer(string email, string password)
+        {
+            return _iCustomerRepository.MatchCustomer(email, password);
+        }
     }
 }
