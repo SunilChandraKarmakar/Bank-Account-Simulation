@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogicLayer.Contracts;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -20,13 +21,19 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View(_iAccountTypeManager.GetAll());
+            if (HttpContext.Session.GetString("Id") != null)
+                return View(_iAccountTypeManager.GetAll());
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            if (HttpContext.Session.GetString("Id") != null)
+                return View();
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -48,15 +55,20 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Update(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            AccountType aAccountType = _iAccountTypeManager.GetById(id);
+                AccountType aAccountType = _iAccountTypeManager.GetById(id);
 
-            if (aAccountType == null)
-                return NotFound();
+                if (aAccountType == null)
+                    return NotFound();
 
-            return View(aAccountType);
+                return View(aAccountType);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -78,15 +90,20 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Remove(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            AccountType aAccountType = _iAccountTypeManager.GetById(id);
+                AccountType aAccountType = _iAccountTypeManager.GetById(id);
 
-            if (aAccountType == null)
-                return NotFound();
+                if (aAccountType == null)
+                    return NotFound();
 
-            return View(aAccountType);
+                return View(aAccountType);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]

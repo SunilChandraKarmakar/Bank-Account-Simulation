@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogicLayer.Contracts;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
@@ -23,7 +24,10 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View(_iCityManager.GetCityWithCountry());
+            if (HttpContext.Session.GetString("Id") != null)
+                return View(_iCityManager.GetCityWithCountry());
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         private List<SelectListItem> GetAllCountry()
@@ -40,8 +44,13 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.CountryList = GetAllCountry();
-            return View();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                ViewBag.CountryList = GetAllCountry();
+                return View();
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -64,16 +73,21 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Update(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            City aCityDetails = _iCityManager.GetById(id);
+                City aCityDetails = _iCityManager.GetById(id);
 
-            if (aCityDetails == null)
-                return NotFound();
+                if (aCityDetails == null)
+                    return NotFound();
 
-            ViewBag.CountryList = GetAllCountry();
-            return View(aCityDetails);
+                ViewBag.CountryList = GetAllCountry();
+                return View(aCityDetails);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -96,15 +110,21 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Remove(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            City aCityDetails = _iCityManager.GetById(id);
+                City aCityDetails = _iCityManager.GetById(id);
 
-            if (aCityDetails == null)
-                return NotFound();
+                if (aCityDetails == null)
+                    return NotFound();
 
-            return View(aCityDetails);
+                ViewBag.CountryList = GetAllCountry();
+                return View(aCityDetails);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]

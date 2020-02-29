@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogicLayer.Contracts;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
@@ -33,7 +34,10 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View(_iAcccountManager.GetAll());
+            if (HttpContext.Session.GetString("Id") != null)
+                return View(_iAcccountManager.GetAll());
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         private List<SelectListItem> BranchList()
@@ -113,10 +117,15 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.BranchList = BranchList();
-            ViewBag.AccountTypeList = AccountTypeList();
-            ViewBag.AccountStatusList = AccountStatusList();
-            return View();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                ViewBag.BranchList = BranchList();
+                ViewBag.AccountTypeList = AccountTypeList();
+                ViewBag.AccountStatusList = AccountStatusList();
+                return View();
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -141,19 +150,24 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Update(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            Account aAccountDetails = _iAcccountManager.GetById(id);
+                Account aAccountDetails = _iAcccountManager.GetById(id);
 
-            if (aAccountDetails == null)
-                return NotFound();
+                if (aAccountDetails == null)
+                    return NotFound();
 
-            ViewBag.BranchList = BranchList();
-            ViewBag.AccountTypeList = AccountTypeList();
-            ViewBag.AccountStatusList = AccountStatusList();
-            ViewBag.CustomerList = CustomerList();
-            return View(aAccountDetails);
+                ViewBag.BranchList = BranchList();
+                ViewBag.AccountTypeList = AccountTypeList();
+                ViewBag.AccountStatusList = AccountStatusList();
+                ViewBag.CustomerList = CustomerList();
+                return View(aAccountDetails);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -179,15 +193,20 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Remove(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            Account aAccountInfo = _iAcccountManager.GetAccountByIncluding(id);
+                Account aAccountInfo = _iAcccountManager.GetAccountByIncluding(id);
 
-            if (aAccountInfo == null)
-                return NotFound();
+                if (aAccountInfo == null)
+                    return NotFound();
 
-            return View(aAccountInfo);
+                return View(aAccountInfo);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]

@@ -32,7 +32,10 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View(_iCustomerMamager.GetCustomerWithBranch());
+            if (HttpContext.Session.GetString("Id") != null)
+                return View(_iCustomerMamager.GetCustomerWithBranch());
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         private List<SelectListItem> BranchList()
@@ -49,8 +52,13 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.BranchList = BranchList();
-            return View();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                ViewBag.BranchList = BranchList();
+                return View();
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -85,16 +93,21 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Update(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            Customer aCustomer = _iCustomerMamager.GetById(id);
+                Customer aCustomer = _iCustomerMamager.GetById(id);
 
-            if (aCustomer == null)
-                return NotFound();
+                if (aCustomer == null)
+                    return NotFound();
 
-            ViewBag.BranchList = BranchList();
-            return View(aCustomer);
+                ViewBag.BranchList = BranchList();
+                return View(aCustomer);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -130,15 +143,20 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Remove(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            Customer aCustomer = _iCustomerMamager.ACustomerWithBranch(id);
+                Customer aCustomer = _iCustomerMamager.ACustomerWithBranch(id);
 
-            if (aCustomer == null)
-                return NotFound();
+                if (aCustomer == null)
+                    return NotFound();
 
-            return View(aCustomer);
+                return View(aCustomer);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using ProjectRepository.Contracts;
@@ -20,13 +21,19 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View(_iTransactionsTypeRepository.GetAll());
+            if (HttpContext.Session.GetString("Id") != null)
+                return View(_iTransactionsTypeRepository.GetAll());
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            if (HttpContext.Session.GetString("Id") != null)
+                return View();
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -48,15 +55,20 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Update(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            TransactionsType aTransactionsType = _iTransactionsTypeRepository.GetById(id);
+                TransactionsType aTransactionsType = _iTransactionsTypeRepository.GetById(id);
 
-            if (aTransactionsType == null)
-                return NotFound();
+                if (aTransactionsType == null)
+                    return NotFound();
 
-            return View(aTransactionsType);
+                return View(aTransactionsType);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -78,15 +90,20 @@ namespace BankAccountSimulation.Controllers
         [HttpGet]
         public IActionResult Remove(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (id == null)
+                    return NotFound();
 
-            TransactionsType aTransactionsType = _iTransactionsTypeRepository.GetById(id);
+                TransactionsType aTransactionsType = _iTransactionsTypeRepository.GetById(id);
 
-            if (aTransactionsType == null)
-                return NotFound();
+                if (aTransactionsType == null)
+                    return NotFound();
 
-            return View(aTransactionsType);
+                return View(aTransactionsType);
+            }
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
