@@ -2,7 +2,7 @@
 @model Customer
 
 @{
-    ViewData["Title"] = "LoginCustomerInfo";
+    ViewData["Title"] = "Customer Information";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
@@ -36,7 +36,7 @@
                         <img src="~/@Model.Picture" height="140" width="125" />
                     </td>
                     <td>
-                        <a asp-route-id="@Model.Id" asp-action="LoginCustomerUpdate" asp-controller="Customer" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
+                        <a asp-route-id="@Model.Id" asp-action="LoginCustomerUpdate" asp-controller="LoginCustomer" class="btn btn-info"><i class="fas fa-external-link-alt"></i> Edit</a>
                     </td>
                 </tr>
             </tbody>

@@ -55,7 +55,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a asp-action="LoginCustomerInfo" asp-controller="Customer">My Information</a></li>
+                                    <li><a asp-action="LoginCustomerInfo" asp-controller="LoginCustomer">My Information</a></li>
                                     @if(Context.Session.GetString("CustomerId") != null)
                                     {
                                         <li><a asp-action="CustomerLogout" asp-controller="LoginLogout">Logout</a></li>

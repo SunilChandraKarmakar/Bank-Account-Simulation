@@ -2,7 +2,7 @@
 @model Customer
 
 @{
-    ViewData["Title"] = "LoginCustomerUpdate";
+    ViewData["Title"] = "Customer Update";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
@@ -37,7 +37,6 @@
                 <label hidden="hidden" asp-for="BranchId" class="col-md-2 control-lable">Branch</label>
                 <div class="col-md-8">
                     <select hidden="hidden" asp-for="BranchId" asp-items="@ViewBag.BranchList" class="form-control">
-
                     </select>
                     <span asp-validation-for="BranchId" class="text-danger"></span>
                 </div>
@@ -61,7 +60,7 @@
             <div class="form-group">
                 <label asp-for="JoinDate" class="col-md-5 control-lable">Join Date</label>
                 <div class="col-md-8">
-                    <input type="text" asp-for="JoinDate" class="form-control" readonly="readonly"/>
+                    <input type="text" asp-for="JoinDate" class="form-control" readonly="readonly" />
                     <span asp-validation-for="JoinDate" class="text-danger"></span>
                 </div>
             </div>

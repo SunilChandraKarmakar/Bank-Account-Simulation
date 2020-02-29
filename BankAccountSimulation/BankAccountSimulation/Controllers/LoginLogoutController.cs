@@ -42,7 +42,7 @@ namespace BankAccountSimulation.Controllers
                     return RedirectToAction("Index", "Admin");
                 }
                 else
-                    ViewBag.ErrorMessage = "Login failed! Please try again.";
+                    ViewBag.ErrorMessage = "Do not match email or password! Please try again.";
             }
 
             return View(loginAdminDetails);
@@ -52,7 +52,7 @@ namespace BankAccountSimulation.Controllers
         public IActionResult AdminLogout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("AdminLogin", "LoginLogout");
         }
 
         [HttpGet]
@@ -73,10 +73,10 @@ namespace BankAccountSimulation.Controllers
                 if (loginCustomerDetails != null)
                 {
                     HttpContext.Session.SetString("CustomerId", loginCustomerDetails.Id.ToString());
-                    return RedirectToAction("LoginCustomerInfo", "Customer");
+                    return RedirectToAction("LoginCustomerInfo", "LoginCustomer");
                 }
                 else
-                    return RedirectToAction("Index", "Home");
+                    ViewBag.ErrorMessage = "Do not match email or password! Please try again.";
             }
 
             return View(loginCustomerDetails);
@@ -86,7 +86,7 @@ namespace BankAccountSimulation.Controllers
         public IActionResult CustomerLogout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("CustomerLogin", "LoginLogout");
         }
     }
 }
