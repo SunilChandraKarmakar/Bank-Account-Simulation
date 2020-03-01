@@ -32,10 +32,35 @@ namespace BankAccountSimulation.Controllers
         }
 
         [HttpGet]
+        public IActionResult TransferMoneyRecordAdmin()
+        {
+            if (HttpContext.Session.GetString("AdminId") != null)
+            {
+                ICollection<TransferMoney> transferMoneyList = _iTransferMoneyManager.GetAll();
+                return View(transferMoneyList);
+            }
+            else
+                return RedirectToAction("AdminLogin", "LoginLogout");
+        }
+
+        [HttpGet]
         public IActionResult TransferMoneyRecord()
         {
             if (HttpContext.Session.GetString("CustomerId") != null)
-                return View(_iTransferMoneyManager.GetAll());
+            {
+                string customerId = HttpContext.Session.GetString("CustomerId");
+                int convertCustomerId = Convert.ToInt32(customerId);
+
+                Account getAccountMatchByCustomerId = _iAccountManager
+                                                      .GetLoginCustomerAccountByIncluding(convertCustomerId);
+                string accoundId = getAccountMatchByCustomerId.AccountNumber;
+                int convertAccountId = Convert.ToInt32(accoundId);
+                ICollection<TransferMoney> transferMoneyList = _iTransferMoneyManager.GetAll();
+                List<TransferMoney> metchAccountTransferMoney = transferMoneyList
+                                                                .Where(t => t.AccountId == convertAccountId)
+                                                                .ToList();
+                return View(metchAccountTransferMoney);
+            }
             else
                 return RedirectToAction("CustomerLogin", "LoginLogout");
         }

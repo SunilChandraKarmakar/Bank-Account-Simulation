@@ -10,6 +10,6 @@
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
     <WebStackScaffolding_DbContextTypeFullName>ProjectContext.OurContext</WebStackScaffolding_DbContextTypeFullName>
-    <WebStackScaffolding_LayoutPageFile>~/Views/Shared/_CustomerLayout.cshtml</WebStackScaffolding_LayoutPageFile>
+    <WebStackScaffolding_LayoutPageFile>~/Views/Shared/_AdminLayout.cshtml</WebStackScaffolding_LayoutPageFile>
   </PropertyGroup>
 </Project>

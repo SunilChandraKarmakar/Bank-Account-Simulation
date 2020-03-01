@@ -64,7 +64,13 @@
                                         </ul>
                                     </li>
                                     <li><a asp-action="Index" asp-controller="Branch">Branch</a></li>
-                                    <li><a asp-action="Index" asp-controller="Customer">Cusstomer</a></li>
+                                    <li>
+                                        <a href="#">Customer Info</a>
+                                        <ul class="dropdown">
+                                            <li><a asp-action="Index" asp-controller="Customer">Cusstomer</a></li>
+                                            <li><a asp-action="TransferMoneyRecordAdmin" asp-controller="TransferMoney">Transfer Money</a></li>
+                                        </ul>
+                                    </li>
                                     <li>
                                         <a href="#">Account References</a>
                                         <ul class="dropdown">
@@ -75,7 +81,8 @@
                                     </li>
                                     @if (Context.Session.GetString("AdminId") != null)
                                     {
-                                        <li><a asp-action="AdminLogout" asp-controller="LoginLogout">Logout</a></li>  
+                                        <li><a asp-action="AdminLogout" asp-controller="LoginLogout">Logout</a></li>
+
                                     }
                                 </ul>
                             </div>

@@ -3,30 +3,25 @@
 
 @{
     ViewData["Title"] = "Transfer Money Record";
-    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h1 class="haderTitle">Transfer Money Record</h1>
-<hr />
-
-<div class="row">
-    <div class="col-md-4">
-        <a asp-action="TransferMoney" asp-controller="TransferMoney" class="btn btn-primary"><i class="fas fa-user-plus"></i> Transfer Money</a>
-    </div>
-</div>
 
 <div class="row" id="styleDataTableCountry">
     <div class="col-md-6">
         <table id="dataTable" class="display table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Transfer Information</th> 
+                    <th>Sender Account</th>
+                    <th>Transfer Information</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (TransferMoney item in Model)
                 {
                     <tr>
+                        <td>Sender Account: @item.AccountId</td>
                         <td>
                             Transfer Account: @item.SendAccountNumber <br />
                             Total Ammount: @item.Ammount <br />

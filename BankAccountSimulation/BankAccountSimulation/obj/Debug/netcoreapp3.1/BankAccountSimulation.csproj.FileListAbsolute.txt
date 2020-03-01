@@ -209,3 +209,4 @@ F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulati
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\bin\Debug\netcoreapp3.1\ProjectRepository.pdb
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\BankAccountSimulation.Views.pdb
 F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\BankAccountSimulation.csproj.CopyComplete
+F:\C# Project\Web Application - CORE\Bank-Account-Simulation\BankAccountSimulation\BankAccountSimulation\obj\Debug\netcoreapp3.1\Razor\Views\TransferMoney\TransferMoneyRecordAdmin.cshtml.g.cs
