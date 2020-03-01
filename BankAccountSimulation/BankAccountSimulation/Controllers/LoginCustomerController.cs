@@ -16,16 +16,19 @@ namespace BankAccountSimulation.Controllers
     {
         private readonly ICustomerManager _iCustomerManager;
         private readonly IBranchManager _iBranchManager;
+        private readonly IAccountManager _iAccountManager;
         [Obsolete]
         private readonly IHostingEnvironment _iHostingEnvironment;
 
         [Obsolete]
         public LoginCustomerController(ICustomerManager iCustomerManager,
-                                      IHostingEnvironment iHostingEnvironment, IBranchManager iBranchManager)
+                                      IHostingEnvironment iHostingEnvironment, IBranchManager iBranchManager,
+                                      IAccountManager iAccountManager)
         {
             _iCustomerManager = iCustomerManager;
             _iHostingEnvironment = iHostingEnvironment;
             _iBranchManager = iBranchManager;
+            _iAccountManager = iAccountManager;
         }
 
         private List<SelectListItem> BranchList()
@@ -109,6 +112,20 @@ namespace BankAccountSimulation.Controllers
                 ViewBag.BranchList = BranchList();
                 return View(aCustomer);
             }
+        }
+
+        [HttpGet]
+        public IActionResult LoginCustomerAccountInfo()
+        {
+            if (HttpContext.Session.GetString("CustomerId") != null)
+            {
+                Customer loginCustomerInfo = LoginCustomer();
+                int loginCustomerId = loginCustomerInfo.Id;
+                Account loginCustomerAccountInfo = _iAccountManager.GetLoginCustomerAccountByIncluding(loginCustomerId);
+                return View(loginCustomerAccountInfo);
+            }
+            else
+                return RedirectToAction("CustomerLogin", "LoginLogout");
         }
     }
 }

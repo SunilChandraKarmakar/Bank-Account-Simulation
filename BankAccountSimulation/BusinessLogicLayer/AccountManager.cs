@@ -32,5 +32,10 @@ namespace BusinessLogicLayer
         {
             return _iAccountRepository.GetAccountByIncluding(id);
         }
+
+        public Account GetLoginCustomerAccountByIncluding(int loginCustomerId)
+        {
+            return _iAccountRepository.GetLoginCustomerAccountByIncluding(loginCustomerId);
+        }
     }
 }

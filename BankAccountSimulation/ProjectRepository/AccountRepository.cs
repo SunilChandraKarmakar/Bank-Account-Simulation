@@ -41,5 +41,16 @@ namespace ProjectRepository
                                               .FirstOrDefault();
             return aAccountDetails;
         }
+
+        public Account GetLoginCustomerAccountByIncluding(int loginCustomerId)
+        {
+            Account loginCustomerAccountDetails = ourContext.Accounts
+                                                  .Include(a => a.AccountStatus)
+                                                  .Include(a => a.AccountType)
+                                                  .Include(a => a.Branch)
+                                                  .Include(a => a.Customer)
+                                                  .Where(a => a.CustomerId == loginCustomerId).FirstOrDefault();
+            return loginCustomerAccountDetails;
+        }
     }
 }

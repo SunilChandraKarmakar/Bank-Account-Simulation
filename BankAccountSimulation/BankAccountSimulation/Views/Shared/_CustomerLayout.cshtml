@@ -56,28 +56,29 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a asp-action="LoginCustomerInfo" asp-controller="LoginCustomer">My Information</a></li>
-                                    @if(Context.Session.GetString("CustomerId") != null)
+                                    <li><a asp-action="LoginCustomerAccountInfo" asp-controller="LoginCustomer">Account Information</a></li>
+                                    @if (Context.Session.GetString("CustomerId") != null)
                                     {
                                         <li><a asp-action="CustomerLogout" asp-controller="LoginLogout">Logout</a></li>
                                     }
 
                                     @*<li>
-                                        <a href="#">References</a>
-                                        <ul class="dropdown">
-                                            <li><a asp-action="Index" asp-controller="Country">Country</a></li>
-                                            <li><a asp-action="Index" asp-controller="City">City</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a asp-action="Index" asp-controller="Branch">Branch</a></li>
-                                    <li><a asp-action="Index" asp-controller="Customer">Cusstomer</a></li>
-                                    <li>
-                                        <a href="#">Account References</a>
-                                        <ul class="dropdown">
-                                            <li><a asp-action="Index" asp-controller="AccountType">Account Type</a></li>
-                                            <li><a asp-action="Index" asp-controller="AccountStatus">Account Status</a></li>
-                                            <li><a asp-action="Index" asp-controller="Account">Account</a></li>
-                                        </ul>
-                                    </li>*@
+            <a href="#">References</a>
+            <ul class="dropdown">
+                <li><a asp-action="Index" asp-controller="Country">Country</a></li>
+                <li><a asp-action="Index" asp-controller="City">City</a></li>
+            </ul>
+        </li>
+        <li><a asp-action="Index" asp-controller="Branch">Branch</a></li>
+        <li><a asp-action="Index" asp-controller="Customer">Cusstomer</a></li>
+        <li>
+            <a href="#">Account References</a>
+            <ul class="dropdown">
+                <li><a asp-action="Index" asp-controller="AccountType">Account Type</a></li>
+                <li><a asp-action="Index" asp-controller="AccountStatus">Account Status</a></li>
+                <li><a asp-action="Index" asp-controller="Account">Account</a></li>
+            </ul>
+        </li>*@
                                 </ul>
                             </div>
                             <!-- Nav End -->

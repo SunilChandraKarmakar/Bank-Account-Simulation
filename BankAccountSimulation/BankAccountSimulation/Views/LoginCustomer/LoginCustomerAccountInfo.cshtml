@@ -1,0 +1,37 @@
+﻿@using Models
+@model Account
+
+@{
+    ViewData["Title"] = "Login Custome Account Information";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h1 class="haderTitle">Account Details</h1>
+
+<div class="row" id="styleDataTableCountry">
+    <div class="col-md-10">
+        <table class="display table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Basic Info</th>
+                    <th>Account Info</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Branch: @Model.Branch.Name <br />
+                        Type: @Model.AccountType.Name <br />
+                        Status: @Model.AccountStatus.Name <br />
+                    </td>
+                    <td>
+                        Customer: @Model.Customer.Name <br />
+                        AC No: @Model.AccountNumber <br />
+                        Balance: @Model.Balance <br />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

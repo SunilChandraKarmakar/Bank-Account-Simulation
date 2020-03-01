@@ -2,11 +2,11 @@
 
 namespace ProjectContext.Migrations
 {
-    public partial class CreateView_CustomerNotInAccount : Migration
+    public partial class ModifyViewCustomerNotInAccounts : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql(@"CREATE VIEW CustomerNotInAccount
+            migrationBuilder.Sql(@"CREATE VIEW CustomerNotInAccounts
                                     AS
                                     SELECT * FROM Customers
                                     WHERE Id NOT IN (SELECT a.CustomerId FROM Accounts as a)");
@@ -14,7 +14,7 @@ namespace ProjectContext.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("DROP VIEW IF EXISTS dbo.CustomerNotInAccount");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS dbo.CustomerNotInAccounts");
         }
     }
 }

@@ -45,7 +45,7 @@ namespace ProjectContext
             modelBuilder.Entity<Account>().HasIndex(a=> new { a.AccountNumber }).IsUnique();
             modelBuilder.Entity<TransactionsType>().HasIndex(t => t.Name).IsUnique();
 
-            modelBuilder.Query<CustomerNotInAccount>().ToView("CustomerNotInAccount"); 
+            modelBuilder.Query<CustomerNotInAccount>().ToView("CustomerNotInAccounts"); 
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
