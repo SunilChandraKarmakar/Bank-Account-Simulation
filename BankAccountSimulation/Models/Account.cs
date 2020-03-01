@@ -34,5 +34,6 @@ namespace Models
         public AccountType AccountType { get; set; }
         public AccountStatus AccountStatus { get; set; }
         public TransferMoney TransferMoney { get; set; }
+        public ICollection<WithdrawMoney> WithdrawMoney { get; set; }
     }
 }

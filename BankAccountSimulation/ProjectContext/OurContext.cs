@@ -20,6 +20,7 @@ namespace ProjectContext
         public DbSet<Account> Accounts { get; set; }
         public DbSet<TransactionsType> TransactionsTypes { get; set; } 
         public DbSet<TransferMoney> TransferMoney { get; set; }
+        public DbSet<WithdrawMoney> WithdrawMoney { get; set; }
 
         [Obsolete]
         public DbQuery<CustomerNotInAccount> CustomerNotInAccounts { get; set; }
