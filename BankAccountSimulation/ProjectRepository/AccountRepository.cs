@@ -52,5 +52,19 @@ namespace ProjectRepository
                                                   .Where(a => a.CustomerId == loginCustomerId).FirstOrDefault();
             return loginCustomerAccountDetails;
         }
+
+        public Account CheckAccountNumber(string sendingAccountNumber)
+        {
+            Account checkAccountNumber = ourContext.Accounts.
+                                        Where(a => a.AccountNumber == sendingAccountNumber).FirstOrDefault();
+            return checkAccountNumber; 
+        }
+
+        public Account FindAccountByAccountNumber(string accountNumber)
+        {
+            Account findAccount = ourContext.Accounts
+                                  .Where(a => a.AccountNumber == accountNumber).FirstOrDefault();
+            return findAccount;
+        }
     }
 }

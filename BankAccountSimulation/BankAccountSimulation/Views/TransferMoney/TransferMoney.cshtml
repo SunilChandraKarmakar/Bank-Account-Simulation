@@ -1,0 +1,113 @@
+﻿@using Models
+@model TransferMoney
+
+@{
+    ViewData["Title"] = "Transfer Money";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+
+<h1 class="haderTitle">Transfer Money</h1>
+<hr />
+
+<div class="row" id="createFrom">
+    <div class="col-md-12">
+        <form method="post" asp-action="TransferMoney">
+            <div class="form-group">
+                <label asp-for="AccountId" class="col-md-6 control-lable">My Account Number</label>
+                <div class="col-md-6">
+                    <input type="text" asp-for="AccountId" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="AccountId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SendAccountNumber" class="col-md-6 control-lable">Sending Number</label>
+                <div class="col-md-6">
+                    <input type="text" asp-for="SendAccountNumber" class="form-control" />
+                    <span asp-validation-for="SendAccountNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ammount" class="col-md-6 control-lable">Ammount</label>
+                <div class="col-md-6">
+                    <input type="number" asp-for="Ammount" class="form-control" />
+                    <span asp-validation-for="Ammount" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <span class="text-danger">@ViewBag.ErrorMessage</span>
+                    <input type="submit" value="Transfer Money" class="btn btn-success" />
+                    <a asp-action="TransferMoneyRecord" class="btn btn-info"><i class="far fa-list-alt"></i> Back To Racord</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var serverUrlForGetAccountNumber = '/api/TransferMoney/GetAccountNumber';
+            
+            $.ajax({
+                url: serverUrlForGetAccountNumber,
+                success: function (response) {
+                    var accountNumber = response;
+                    $("#AccountId").val(accountNumber);
+                },
+                error: function (response) {
+                    alert(response);
+                }
+            });
+
+            $("#SendAccountNumber").change(function () { 
+                var sendingAccountNumber = $("#SendAccountNumber").val();
+                var serverUrlForCheckAccountNumber = '/api/TransferMoney/CheckAccountNumber?sendingAccountNumber=' + sendingAccountNumber;
+
+                $.ajax({
+                    url: serverUrlForCheckAccountNumber,
+                    success: function (response) {
+                        var accountNumber = response;
+                        if (accountNumber == 0) {
+                            alert("Sending account number not match! Please try again.");
+                            $('#SendAccountNumber').val('');
+                        }
+                    },
+                    error: function (response) {
+                        alert(response);
+                    }
+                });
+            });
+
+             $("#Ammount").change(function () { 
+                 var ammount = $("#Ammount").val();
+                 var serverUrlForCheckAmmount = '/api/TransferMoney/CheckAmmount?ammount=' + ammount;
+
+                $.ajax({
+                    url: serverUrlForCheckAmmount,
+                    success: function (response) {
+                        var balance = response;
+                        if (balance == 1) {
+                            alert("Your sufficient balance is not enough! Please try again.");
+                            $('#Ammount').val('');
+                        }
+
+                        if (balance == 2) {
+                            alert("Do not send less than 1 Taka! Please try again.");
+                            $('#Ammount').val('');
+                        }
+                    },
+                    error: function (response) {
+                        alert(response);
+                    }
+                });
+            });
+        });
+    </script>
+}
+

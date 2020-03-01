@@ -121,7 +121,8 @@ namespace BankAccountSimulation.Controllers
             {
                 Customer loginCustomerInfo = LoginCustomer();
                 int loginCustomerId = loginCustomerInfo.Id;
-                Account loginCustomerAccountInfo = _iAccountManager.GetLoginCustomerAccountByIncluding(loginCustomerId);
+                Account loginCustomerAccountInfo = _iAccountManager
+                                                   .GetLoginCustomerAccountByIncluding(loginCustomerId);
                 return View(loginCustomerAccountInfo);
             }
             else

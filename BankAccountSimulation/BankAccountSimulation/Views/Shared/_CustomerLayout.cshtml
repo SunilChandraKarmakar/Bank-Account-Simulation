@@ -57,6 +57,7 @@
                                 <ul>
                                     <li><a asp-action="LoginCustomerInfo" asp-controller="LoginCustomer">My Information</a></li>
                                     <li><a asp-action="LoginCustomerAccountInfo" asp-controller="LoginCustomer">Account Information</a></li>
+                                    <li><a asp-action="TransferMoneyRecord" asp-controller="TransferMoney">Transfer Money</a></li>
                                     @if (Context.Session.GetString("CustomerId") != null)
                                     {
                                         <li><a asp-action="CustomerLogout" asp-controller="LoginLogout">Logout</a></li>

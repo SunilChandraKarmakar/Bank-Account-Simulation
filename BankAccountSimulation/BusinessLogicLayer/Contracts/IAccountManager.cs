@@ -12,5 +12,7 @@ namespace BusinessLogicLayer.Contracts
         public List<CustomerNotInAccount> GetCustomerByBranchIdNotInAccount(int branchId);
         public Account GetAccountByIncluding(int? id);
         public Account GetLoginCustomerAccountByIncluding(int loginCustomerId);
+        public Account CheckAccountNumber(string sendingAccountNumber);
+        public Account FindAccountByAccountNumber(string accountNumber);
     }
 }
