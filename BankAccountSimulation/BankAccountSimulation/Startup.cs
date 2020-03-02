@@ -59,6 +59,8 @@ namespace BankAccountSimulation
             services.AddTransient<ITransactionsTypeRepository, TransactionTypeRepository>();
             services.AddTransient<ITransferMoneyManager, TransferMoneyManager>();
             services.AddTransient<ITransferMoneyRepository, TransferMoneyRepository>();
+            services.AddTransient<IWithdrawMoneyManager, WithdrawMoneyManager>();
+            services.AddTransient<IWithdrawMoneyRepository, WithdrawMoneyRepository>();
 
             services.AddDistributedMemoryCache();
             services.AddSession();

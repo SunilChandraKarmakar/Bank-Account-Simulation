@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectContext;
 
 namespace ProjectContext.Migrations
 {
     [DbContext(typeof(OurContext))]
-    partial class OurContextModelSnapshot : ModelSnapshot
+    [Migration("20200302062352_ModifyModel_WithdrawMoney")]
+    partial class ModifyModel_WithdrawMoney
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,9 +51,6 @@ namespace ProjectContext.Migrations
                     b.Property<int?>("TransferMoneyId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WithdrawMoneyId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AccountNumber")
@@ -66,8 +65,6 @@ namespace ProjectContext.Migrations
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("TransferMoneyId");
-
-                    b.HasIndex("WithdrawMoneyId");
 
                     b.ToTable("Accounts");
                 });
@@ -345,10 +342,11 @@ namespace ProjectContext.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("WithdrawNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
 
                     b.ToTable("WithdrawMoney");
                 });
@@ -383,11 +381,6 @@ namespace ProjectContext.Migrations
                         .WithMany("Accounts")
                         .HasForeignKey("TransferMoneyId")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Models.WithdrawMoney", "WithdrawMoney")
-                        .WithMany("Accounts")
-                        .HasForeignKey("WithdrawMoneyId")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Models.Branch", b =>
@@ -419,6 +412,15 @@ namespace ProjectContext.Migrations
                     b.HasOne("Models.Branch", "Branch")
                         .WithMany("Customers")
                         .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Models.WithdrawMoney", b =>
+                {
+                    b.HasOne("Models.Account", "Account")
+                        .WithMany("WithdrawMoney")
+                        .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

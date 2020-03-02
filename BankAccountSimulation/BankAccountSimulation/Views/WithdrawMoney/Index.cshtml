@@ -1,0 +1,39 @@
+﻿@using Models
+@model IEnumerable<WithdrawMoney>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="haderTitle">Withdraw Money Details</h1>
+<hr />
+
+<div class="row" id="styleDataTableCountry">
+    <div class="col-md-10">
+        <table id="dataTable" class="display table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>My Account</th>
+                    <th>Withdraw Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (WithdrawMoney item in Model)
+                {
+                    <tr>
+                        <td>
+                            Account No: @item.AccountId <br />
+                        </td>
+                        <td>
+                            Withdraw No: @item.WithdrawNumber <br />
+                            Ammount: @item.Ammount <br />
+                            Date: @item.WithdrawDate <br />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
