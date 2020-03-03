@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "datatables@1.10.19",
+      "destination": "wwwroot/datatables/"
+    },
+    {
+      "library": "font-awesome@5.12.1",
+      "destination": "wwwroot/font-awesome/"
+    },
+    {
+      "library": "jquery-datetimepicker@2.5.20",
+      "destination": "wwwroot/jquery-datetimepicker/"
+    },
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/jqueryui/"
+    }
+  ]
+}
